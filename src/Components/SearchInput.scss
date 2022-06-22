@@ -1,0 +1,21 @@
+.input {
+  position: relative;
+  height: 30px;
+  width: 500px;
+  &__field{
+    position: absolute;
+    height: inherit;
+    width: 100%;
+    color: black;
+    
+  }
+  &__icon {
+    position: absolute;
+    background-size: cover;
+    right: 0;
+    // border: 0;
+    width: 30px;
+    height: 100%;
+  }
+}
+
