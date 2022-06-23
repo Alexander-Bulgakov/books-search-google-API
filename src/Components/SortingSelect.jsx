@@ -2,9 +2,11 @@ import React from "react"
 
 const SortingSelect = () => {
   return(
-    <label>Sorting by
-      <select className="select"></select>
-    </label>
+    <div>
+      <label htmlFor="sorting-select">Sorting by</label>
+        <select className="select" id="sorting-select">
+        </select>
+    </div>
   )
 }
 

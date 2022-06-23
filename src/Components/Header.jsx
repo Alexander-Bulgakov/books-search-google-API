@@ -13,7 +13,7 @@ const Header = () => {
       style={{backgroundImage: `url(${background})`}}
       >
       <div className="header-container">
-        <h1 className="header_title">Search for books</h1>
+        <h1 className="header-container__title">Search for books</h1>
         <SearchInput />
         <div className="selects-wrapper">
           <CategoriesSelect />
