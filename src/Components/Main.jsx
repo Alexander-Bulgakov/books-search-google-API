@@ -7,7 +7,7 @@ import Card from './Card';
 const LoadMoreButton = () => {
 
   // const handleClick = () => {
-  //   BooksStore.setBooks('react');
+  //   BooksStore.getBooksFromAPI('react');
   // }
 
   if (BooksStore.loadMoreButton){

@@ -4,15 +4,23 @@ import { makeAutoObservable, toJS } from "mobx";
 class BooksStore {
 
   books = []
+  loadMoreButton = false;
+
+  // URL parameters
   baseUrl = 'https://www.googleapis.com/books/v1/volumes?q='
-  key = '&key=AIzaSyDt39Xy7-W9qE7A8pwQqagkCnieyQQbIMg'
+  searchText = ''
   totalItems = 0
   category = 'all'
   orderBy = 'relevance'
-  loadMoreButton = false;
+  startIndex = 0
+  key = '&key=AIzaSyDt39Xy7-W9qE7A8pwQqagkCnieyQQbIMg'
 
   constructor() {
     makeAutoObservable(this);
+  }
+
+  setSearchText(text) {
+    this.searchText = text;
   }
 
   setCategory(item) {
@@ -25,24 +33,27 @@ class BooksStore {
     console.log('orederBy >>> ', this.orderBy);
   }
 
-  createURL(searchText) {
-    console.log('cat >>> ', this.category);
-    debugger;
-    return this.baseUrl + searchText + '+subject:' + this.category + '&orderBy=' + this.orderBy + this.key + '&maxResults=30';
-    // return this.baseUrl + searchText + '+subject:' + this.category + this.key + '&maxResults=30'
+  createURL() {
+    return  this.baseUrl + 
+            this.searchText + 
+            (this.category === 'all' ? '' : 'subject:' + this.category) + 
+            '&startIndex=' + this.startIndex +
+            '&orderBy=' + this.orderBy + 
+            this.key + 
+            '&maxResults=30';
   }
 
-  async setBooks(searchText) {
+  async getBooksFromAPI(searchText) {
     const url = this.createURL(searchText);
     console.log(url);
     debugger;
-    const requestedBooks = await axios.get(this.baseUrl + searchText + '+subject:' + this.category + '&orderBy=' + this.orderBy + this.key + '&maxResults=30')
-    // const requestedBooks = await axios.get(this.baseUrl + searchText + '+subject:' + this.category + '&orderBy=' + this.orderBy + this.key + '&maxResults=30')
+    const requestedBooks = await axios.get(url)
       .then(res => {
         this.totalItems = res.data.totalItems;
         this.books = res.data.items;
         this.loadMoreButton = true;
       })
+      .catch(err => console.log(err));
     console.log('requestedBooks >>> ', toJS(this.books));
     console.log('total', this.totalItems);
 

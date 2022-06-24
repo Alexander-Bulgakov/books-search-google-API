@@ -10,13 +10,15 @@ const SearchInput = observer (() => {
   const[search, setSearch] = useState('');
 
   const handleClick = () => {
-    BooksStore.setBooks(search);
+    BooksStore.setSearchText(search);
+    BooksStore.getBooksFromAPI();
     console.log(search);
   }
 
   const onSearchBook = (event) => {
     if (event.key === 'Enter') {
-      BooksStore.setBooks(search);
+      BooksStore.setSearchText(search);
+      BooksStore.getBooksFromAPI(search);
       console.log(event.target.value);
     }
   }
