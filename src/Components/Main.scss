@@ -1,0 +1,13 @@
+.search-count {
+  color: black;
+  text-align: center;
+  margin: 20px;
+}
+.main-container {
+  width: 95%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 0.5fr));
+  grid-gap: 40px;
+  box-sizing: border-box;
+}

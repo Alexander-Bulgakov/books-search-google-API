@@ -1,0 +1,44 @@
+.card {
+  background-color:rgb(243, 240, 240);
+  padding: 20px;
+  transition-property: transform, background-color;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  // transition: transform, background-color 0.5s;
+
+  .image-wrapper {
+    position: relative;
+    display: flex;
+    margin: 20px;
+  }
+
+  &__image {
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 10px 10px 5px rgb(163, 163, 163);
+    color: black;
+  }
+
+  &-description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__category{
+    color: black;
+  }
+
+  &__title{
+    color: black;
+  }
+
+  &__authors{
+    color: black;
+  }
+}
+
+.card:hover {
+  transform: scale(0.95);
+  background-color: rgba(243, 240, 240, 0.5);
+}
