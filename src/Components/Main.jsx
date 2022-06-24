@@ -4,38 +4,22 @@ import { observer } from 'mobx-react-lite';
 import './Main.scss';
 import Card from './Card';
 
-// const CardsGrid = () => {
-//   return(
-//     <div className="main-container">
-//       {BooksStore.books.map(item => (
-//         <Card 
-//           key={item.id}
-//           categories={item.volumeInfo.categories}
-//           title={item.volumeInfo.title}
-//           authors={item.volumeInfo.authors}
-//           image={item.volumeInfo?.imageLinks?.smallThumbnail}
-//         />
-//         )
-//       )}
-//     </div>
-//   )
-// }
+const LoadMoreButton = () => {
 
-// const NotFound = () => {
-//   return(
-//   <div className="main-container">
-//     Books not found
-//   </div>
-//   )
-// }
+  // const handleClick = () => {
+  //   BooksStore.setBooks('react');
+  // }
 
-// const MainSection = () => {
-//   if (BooksStore.books) {
-//     return CardsGrid
-//   } else {
-//     return NotFound
-//   }
-// }
+  if (BooksStore.loadMoreButton){
+    return(
+      <button 
+      // onClick={handleClick}
+      >Load more</button>
+    )
+  } else {
+    return null;
+  }
+}
 
 const Main = () => {
   return(
@@ -45,7 +29,7 @@ const Main = () => {
         {BooksStore.books?.map(item => (
           <Card 
             key={item.id}
-            categories={item.volumeInfo.categories[0]}
+            categories={item.volumeInfo.categories}
             title={item.volumeInfo.title}
             authors={item.volumeInfo.authors}
             image={item.volumeInfo?.imageLinks?.smallThumbnail}
@@ -53,6 +37,7 @@ const Main = () => {
           )
         )}
       </div>
+      <LoadMoreButton />
     </>
   )
 

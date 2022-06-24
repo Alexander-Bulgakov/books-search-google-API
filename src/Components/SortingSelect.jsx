@@ -1,6 +1,13 @@
 import React from "react";
+import { observer } from 'mobx-react-lite';
+import BooksStore from '../store/BooksStore';
+
 
 const sorting = ['relevance', 'newest'];
+
+const handleChange = (event) => {
+  BooksStore.setSorting(event.target.value);
+}
 
 const SortingSelect = () => {
   return(
@@ -9,12 +16,13 @@ const SortingSelect = () => {
         <select 
           className="select" 
           id="sorting-select"
+          onChange={handleChange}
           >
           {
             sorting.map(item => (
               <option 
                 key={item}
-                value={item} 
+                value={item}
                 >{item}</option>
             ))
           }
@@ -23,4 +31,4 @@ const SortingSelect = () => {
   )
 }
 
-export default SortingSelect;
+export default observer(SortingSelect);

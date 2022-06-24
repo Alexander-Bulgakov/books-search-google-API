@@ -9,6 +9,7 @@ class BooksStore {
   totalItems = 0
   category = 'all'
   orderBy = 'relevance'
+  loadMoreButton = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -17,6 +18,11 @@ class BooksStore {
   setCategory(item) {
     this.category = item;
     console.log('category >>> ', this.category);
+  }
+
+  setSorting(item) {
+    this.orderBy = item;
+    console.log('orederBy >>> ', this.orderBy);
   }
 
   createURL(searchText) {
@@ -33,8 +39,9 @@ class BooksStore {
     const requestedBooks = await axios.get(this.baseUrl + searchText + '+subject:' + this.category + '&orderBy=' + this.orderBy + this.key + '&maxResults=30')
     // const requestedBooks = await axios.get(this.baseUrl + searchText + '+subject:' + this.category + '&orderBy=' + this.orderBy + this.key + '&maxResults=30')
       .then(res => {
-        this.totalItems = res.data.totalItems
-        this.books = res.data.items
+        this.totalItems = res.data.totalItems;
+        this.books = res.data.items;
+        this.loadMoreButton = true;
       })
     console.log('requestedBooks >>> ', toJS(this.books));
     console.log('total', this.totalItems);

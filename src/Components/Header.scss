@@ -17,6 +17,7 @@
     &__title {
       font-size: 44px;
       margin-bottom: 20px;
+      color: white;
     }
     
     .selects-wrapper {
@@ -29,16 +30,17 @@
 
       label {
         margin-right: 5px;
+        color: white;
       }
       
       .select {
-        color: black;
+        // color: black;
         height: 100%;
         width: 200px;
       }
-      option {
-        color: black;
-      }
+      // option {
+      //   // color: black;
+      // }
     }
   }
 }

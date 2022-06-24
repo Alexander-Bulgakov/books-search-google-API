@@ -28,10 +28,11 @@ const SearchInput = observer (() => {
         className="input__field"
         onChange={(event) => setSearch(event.target.value)}
         onKeyDown={onSearchBook}
-        value={search} />
+        value={search}
+        />
       <img 
         src={searchIcon} 
-        alt="books search" 
+        alt="search" 
         className="input__icon" 
         onClick={handleClick} />
     </div>
