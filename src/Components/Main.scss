@@ -11,3 +11,16 @@
   grid-gap: 40px;
   box-sizing: border-box;
 }
+.button-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  .button {
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgb(57, 40, 212);
+    border-radius: 10px;
+    border: none;
+  }
+}

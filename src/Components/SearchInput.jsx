@@ -10,13 +10,17 @@ const SearchInput = observer (() => {
   const[search, setSearch] = useState('');
 
   const handleClick = () => {
+    BooksStore.books = [];
+    BooksStore.startIndex = 0;
     BooksStore.setSearchText(search);
     BooksStore.getBooksFromAPI();
     console.log(search);
   }
-
+  
   const onSearchBook = (event) => {
     if (event.key === 'Enter') {
+      BooksStore.books = [];
+      BooksStore.startIndex = 0;
       BooksStore.setSearchText(search);
       BooksStore.getBooksFromAPI(search);
       console.log(event.target.value);

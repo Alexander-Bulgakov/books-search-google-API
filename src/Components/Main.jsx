@@ -6,15 +6,18 @@ import Card from './Card';
 
 const LoadMoreButton = () => {
 
-  // const handleClick = () => {
-  //   BooksStore.getBooksFromAPI('react');
-  // }
+  const handleClick = () => {
+    BooksStore.getBooksFromAPI();
+  }
 
   if (BooksStore.loadMoreButton){
     return(
-      <button 
-      // onClick={handleClick}
-      >Load more</button>
+      <div className="button-container">
+        <button 
+        className="button"
+        onClick={handleClick}
+        >Load more</button>
+      </div>
     )
   } else {
     return null;

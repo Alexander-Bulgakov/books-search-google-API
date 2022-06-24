@@ -43,22 +43,20 @@ class BooksStore {
             '&maxResults=30';
   }
 
-  async getBooksFromAPI(searchText) {
-    const url = this.createURL(searchText);
+  async getBooksFromAPI() {
+    const url = this.createURL();
     console.log(url);
-    debugger;
     const requestedBooks = await axios.get(url)
       .then(res => {
         this.totalItems = res.data.totalItems;
-        this.books = res.data.items;
+        this.books = [...this.books, ...res.data.items];
         this.loadMoreButton = true;
+        this.startIndex += 30;
       })
       .catch(err => console.log(err));
     console.log('requestedBooks >>> ', toJS(this.books));
     console.log('total', this.totalItems);
-
   }
-
 }
 
 export default new BooksStore();
