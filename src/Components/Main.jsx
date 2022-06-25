@@ -1,50 +1,18 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import BooksStore from '../store/BooksStore';
 import { observer } from 'mobx-react-lite';
+import BooksPage from '../pages/BooksPage';
+import BookDetail from '../pages/BookDetailPage';
 import './Main.scss';
-import Card from './Card';
-
-const LoadMoreButton = () => {
-
-  const handleClick = () => {
-    BooksStore.getBooksFromAPI();
-  }
-
-  if (BooksStore.loadMoreButton){
-    return(
-      <div className="button-container">
-        <button 
-        className="button"
-        onClick={handleClick}
-        >Load more</button>
-      </div>
-    )
-  } else {
-    return null;
-  }
-}
 
 const Main = () => {
   return(
-    <>
-      <h3 className="search-count">Found {BooksStore.totalItems} results</h3>
-      <div className="main-container">
-        {BooksStore.books?.map((item, index) => (
-          <Card 
-            index={index}
-            key={item.id}
-            categories={item.volumeInfo.categories}
-            title={item.volumeInfo.title}
-            authors={item.volumeInfo.authors}
-            image={item.volumeInfo?.imageLinks?.smallThumbnail}
-          />
-          )
-        )}
-      </div>
-      <LoadMoreButton />
-    </>
+    <Routes>
+      <Route path="/" element={<BooksPage />} />
+      <Route path="/detailPage" element={<BookDetail />} />
+    </Routes>
   )
-
 }
 
-export default observer(Main);
+export default Main;

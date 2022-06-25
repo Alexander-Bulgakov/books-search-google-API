@@ -1,9 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Card.scss';
 
 const Card = ( { index, categories, title, authors, image } ) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    console.log(index);
+    navigate('/detailPage');
+  }
+
   return(
-    <div className="card" onClick={() => console.log(index)}>
+    <div className="card" onClick={handleClick}>
       <div className="image-wrapper">
         <img src={image} alt="Book cover" className="card__image" />
       </div>
