@@ -36,7 +36,7 @@ class BooksStore {
   createURL() {
     return  this.baseUrl + 
             this.searchText + 
-            (this.category === 'all' ? '' : 'subject:' + this.category) + 
+            (this.category === 'all' ? '' : '&subject:' + this.category) + 
             '&startIndex=' + this.startIndex +
             '&orderBy=' + this.orderBy + 
             this.key + 

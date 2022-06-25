@@ -29,8 +29,9 @@ const Main = () => {
     <>
       <h3 className="search-count">Found {BooksStore.totalItems} results</h3>
       <div className="main-container">
-        {BooksStore.books?.map(item => (
+        {BooksStore.books?.map((item, index) => (
           <Card 
+            index={index}
             key={item.id}
             categories={item.volumeInfo.categories}
             title={item.volumeInfo.title}

@@ -9,20 +9,25 @@ const SearchInput = observer (() => {
 
   const[search, setSearch] = useState('');
 
-  const handleClick = () => {
+  const refreshStoreData = () => {
     BooksStore.books = [];
     BooksStore.startIndex = 0;
+  }
+  
+  const onSearch = () => {
+    refreshStoreData();
     BooksStore.setSearchText(search);
     BooksStore.getBooksFromAPI();
+  }
+
+  const handleClick = () => {
+    onSearch();
     console.log(search);
   }
   
-  const onSearchBook = (event) => {
+  const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      BooksStore.books = [];
-      BooksStore.startIndex = 0;
-      BooksStore.setSearchText(search);
-      BooksStore.getBooksFromAPI(search);
+      onSearch();
       console.log(event.target.value);
     }
   }
@@ -33,7 +38,7 @@ const SearchInput = observer (() => {
         type="text" 
         className="input__field"
         onChange={(event) => setSearch(event.target.value)}
-        onKeyDown={onSearchBook}
+        onKeyDown={handleKeyDown}
         value={search}
         />
       <img 
