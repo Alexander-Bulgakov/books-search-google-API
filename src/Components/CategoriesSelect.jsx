@@ -14,7 +14,7 @@ const CategoriesSelect = () => {
   }
 
   return(
-    <div>
+    <div className="select-wrapper">
       <label htmlFor="categories-select">Categories
       </label>
       <select

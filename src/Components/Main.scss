@@ -7,7 +7,7 @@
   width: 95%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, minmax(200px, 0.5fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr));
   grid-gap: 40px;
   box-sizing: border-box;
 }

@@ -1,7 +1,9 @@
 .input {
   position: relative;
+  margin: 10px auto;
   height: 30px;
   width: 500px;
+  overflow: hidden;
   &__field{
     position: absolute;
     height: inherit;
@@ -19,3 +21,13 @@
   }
 }
 
+@media (max-width: 768px ) {
+  .input {
+    width: 500px;
+  }
+}
+@media (max-width: 576px ) {
+  .input {
+    width: 300px;
+  }
+}

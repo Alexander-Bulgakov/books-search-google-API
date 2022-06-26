@@ -1,18 +1,21 @@
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color:rgb(243, 240, 240);
   padding: 20px;
   transition-property: transform, background-color;
   transition-duration: 0.3s;
   cursor: pointer;
-  // transition: transform, background-color 0.5s;
 
   .image-wrapper {
-    position: relative;
-    display: flex;
-    margin: 20px;
+    align-self: center;
+    overflow: unset;
+    margin-bottom: 20px;
   }
 
   &__image {
+    overflow: hidden;
     justify-content: center;
     margin: 0 auto;
     box-shadow: 10px 10px 5px rgb(163, 163, 163);
@@ -26,7 +29,7 @@
   }
 
   &__category{
-    color: black;
+    color: gray;
   }
 
   &__title{
@@ -34,7 +37,7 @@
   }
 
   &__authors{
-    color: black;
+    color: gray;
   }
 }
 

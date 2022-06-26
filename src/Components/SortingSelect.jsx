@@ -11,7 +11,7 @@ const handleChange = (event) => {
 
 const SortingSelect = () => {
   return(
-    <div>
+    <div className="select-wrapper">
       <label htmlFor="sorting-select">Sorting by</label>
         <select 
           className="select" 

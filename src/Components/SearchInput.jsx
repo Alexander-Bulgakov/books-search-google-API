@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import searchIcon from '../images/icons8-search.svg';
-import './SearchInput.scss';
-import BooksStore from '../store/BooksStore';
+import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
+import searchIcon from '../images/icons8-search.svg';
+import BooksStore from '../store/BooksStore';
+import './SearchInput.scss';
 
 const SearchInput = observer (() => {
 
@@ -22,13 +21,11 @@ const SearchInput = observer (() => {
 
   const handleClick = () => {
     onSearch();
-    console.log(search);
   }
   
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       onSearch();
-      console.log(event.target.value);
     }
   }
 
