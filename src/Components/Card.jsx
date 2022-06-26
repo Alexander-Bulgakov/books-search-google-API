@@ -1,12 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import BooksStore from '../store/BooksStore';
 import './Card.scss';
 
-const Card = ( { index, categories, title, authors, image } ) => {
+const Card = ( { id, categories, title, authors, image } ) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    console.log(index);
+    console.log(id);
+    const detailItem = BooksStore.books.find(item => item.id === id);
+    BooksStore.setDetailItem(detailItem);
+    BooksStore.setDetailBookId(id);
     navigate('/detailPage');
   }
 

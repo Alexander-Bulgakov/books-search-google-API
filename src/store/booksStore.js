@@ -5,6 +5,8 @@ class BooksStore {
 
   books = []
   loadMoreButton = false;
+  detailBookId = null;
+  detailItem = null;
 
   // URL parameters
   baseUrl = 'https://www.googleapis.com/books/v1/volumes?q='
@@ -31,6 +33,15 @@ class BooksStore {
   setSorting(item) {
     this.orderBy = item;
     console.log('orederBy >>> ', this.orderBy);
+  }
+
+  setDetailBookId(id) {
+    this.detailBookId = id;
+  }
+
+  setDetailItem(item) {
+    this.detailItem = item;
+    console.log(toJS(this.detailItem));
   }
 
   createURL() {
