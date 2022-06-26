@@ -5,8 +5,8 @@ class BooksStore {
 
   books = []
   loadMoreButton = false;
-  detailBookId = null;
   detailItem = null;
+  loader = false;
 
   // URL parameters
   baseUrl = 'https://www.googleapis.com/books/v1/volumes?q='
@@ -21,6 +21,10 @@ class BooksStore {
     makeAutoObservable(this);
   }
 
+  setLoader(bool) {
+    this.loader = bool;
+  }
+
   setSearchText(text) {
     this.searchText = text;
   }
@@ -33,10 +37,6 @@ class BooksStore {
   setSorting(item) {
     this.orderBy = item;
     console.log('orederBy >>> ', this.orderBy);
-  }
-
-  setDetailBookId(id) {
-    this.detailBookId = id;
   }
 
   setDetailItem(item) {
@@ -64,9 +64,10 @@ class BooksStore {
         this.loadMoreButton = true;
         this.startIndex += 30;
       })
-      .catch(err => console.log(err));
-    console.log('requestedBooks >>> ', toJS(this.books));
-    console.log('total', this.totalItems);
+      .catch(err => console.log(err))
+      .finally(() => {
+        this.setLoader(false);
+      })
   }
 }
 

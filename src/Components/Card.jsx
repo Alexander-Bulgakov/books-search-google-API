@@ -7,10 +7,8 @@ const Card = ( { id, categories, title, authors, image } ) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    console.log(id);
     const detailItem = BooksStore.books.find(item => item.id === id);
     BooksStore.setDetailItem(detailItem);
-    BooksStore.setDetailBookId(id);
     navigate('/detailPage');
   }
 

@@ -1,0 +1,21 @@
+.loader {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  overflow:visible;
+  animation-name: rotation;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  img{
+    overflow: hidden;
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
