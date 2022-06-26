@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import BooksStore from '../store/BooksStore';
-import { observer } from 'mobx-react-lite';
-import Card from '../Components/Card';
 import './BookDetailPage.scss'
 
 const BookDetail = () => {

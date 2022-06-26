@@ -1,9 +1,9 @@
 import React from 'react';
 import BooksStore from '../store/BooksStore';
 import { observer } from 'mobx-react-lite';
-import LoadMoreButton from '../Components/LoadMoreButton';
-import Loader from '../Components/Loader';
-import Card from '../Components/Card';
+import LoadMoreButton from '../components/LoadMoreButton';
+import Loader from '../components/Loader';
+import Card from '../components/Card';
 
 const BooksPage = () => {
 
