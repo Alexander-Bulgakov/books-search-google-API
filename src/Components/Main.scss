@@ -1,13 +1,13 @@
 .search-count {
   color: black;
   text-align: center;
-  margin: 20px;
+  margin: 1.25em;
 }
 .main-container {
-  width: 95%;
+  width: 100%;
+  padding: 0 1em;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr));
-  grid-gap: 40px;
-  box-sizing: border-box;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
+  grid-gap: 2.5em;
 }

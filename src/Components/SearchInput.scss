@@ -1,7 +1,7 @@
 .input {
   position: relative;
-  margin: 10px auto;
-  height: 30px;
+  margin: 0.625em auto;
+  height: 2rem;
   width: 500px;
   overflow: hidden;
   &__field{
@@ -16,7 +16,7 @@
     background-size: cover;
     right: 0;
     top: 2px;
-    width: 30px;
+    width: 2em;
     height: inherit;
   }
 }
