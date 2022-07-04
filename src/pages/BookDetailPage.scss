@@ -4,6 +4,10 @@
   position: relative;
   width: 100%;
   height: 70vh;
+  @media (max-width: 768px) {
+    flex-direction: column; 
+    height: auto;
+  }
   .cover {
     position: relative;
     display: flex;
@@ -26,20 +30,30 @@
 }
 
 .description {
-  position: relative;
-  padding: 50px;
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 3.5em;
+  @media (max-width: 768px) {
+    padding: 2em;
+  }
   & > * {
-    margin-bottom: 10px;
+    overflow: unset;
+    margin-bottom: 0.8em;
   }
   &__description-text {
+    max-height: 100%;
     overflow: auto;
     border: 1px solid;
     border-color: rgb(212, 212, 212);
-    padding: 10px;
+    padding: 0.8em;
   }
 }
 
 .split {
   width: 50%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
