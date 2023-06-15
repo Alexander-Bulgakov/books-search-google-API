@@ -1,19 +1,18 @@
-import React from 'react';
-import BooksStore from '../store/BooksStore';
-import { observer } from 'mobx-react-lite';
-import LoadMoreButton from '../components/LoadMoreButton';
-import Loader from '../components/Loader';
-import Card from '../components/Card';
+import React from "react";
+import BooksStore from "../store/booksStore";
+import { observer } from "mobx-react-lite";
+import LoadMoreButton from "../components/LoadMoreButton";
+import Loader from "../components/Loader";
+import Card from "../components/Card";
 
 const BooksPage = () => {
-
-  return(
+  return (
     <div className="books-container">
       <h3 className="search-count">Found {BooksStore.totalItems} results</h3>
-        <Loader />
+      <Loader />
       <div className="main-container">
         {BooksStore.books?.map((item, index) => (
-          <Card 
+          <Card
             id={item.id}
             key={index}
             categories={item.volumeInfo.categories}
@@ -21,12 +20,11 @@ const BooksPage = () => {
             authors={item.volumeInfo.authors}
             image={item.volumeInfo?.imageLinks?.smallThumbnail}
           />
-          )
-        )}
+        ))}
       </div>
       <LoadMoreButton />
     </div>
-  )
-}
+  );
+};
 
 export default observer(BooksPage);
