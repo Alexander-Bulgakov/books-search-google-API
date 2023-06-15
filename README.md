@@ -13,3 +13,6 @@ npm run start
 ```
 
 Сервис поиска книг с использованием Google Books API.
+
+<img alt="Main page" src="docs/screenshots/Screen_01.png">
+<img alt="Detail page" src="docs/screenshots/Screen_02.png">
